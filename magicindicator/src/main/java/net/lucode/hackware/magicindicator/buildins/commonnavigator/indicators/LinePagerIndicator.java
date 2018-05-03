@@ -2,6 +2,7 @@ package net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
@@ -70,7 +71,7 @@ public class LinePagerIndicator extends View implements IPagerIndicator {
             return;
         }
         //颜色渐变
-        if(mGradualChangeColors!=null && mGradualChangeColors.size()>=2){
+        if(mGradualChangeColors != null && mGradualChangeColors.size() >= 2){
             LinearGradient lg = new LinearGradient(mLineRect.left,mLineRect.top,mLineRect.right,mLineRect.bottom,
                     mGradualChangeColors.get(0),mGradualChangeColors.get(1), Shader.TileMode.MIRROR);
             mPaint.setShader(lg);
@@ -83,6 +84,7 @@ public class LinePagerIndicator extends View implements IPagerIndicator {
                 mPaint.setColor(color);
             }
         }
+
         // 计算锚点位置
         PositionData current = FragmentContainerHelper.getImitativePositionData(mPositionDataList, position);
         PositionData next = FragmentContainerHelper.getImitativePositionData(mPositionDataList, position + 1);
@@ -194,7 +196,7 @@ public class LinePagerIndicator extends View implements IPagerIndicator {
     }
 
     public void setGradualChangeColors(Integer... colors){
-        mGradualChangeColors=Arrays.asList(colors);
+        mGradualChangeColors = Arrays.asList(colors);
     }
 
     public Interpolator getStartInterpolator() {
